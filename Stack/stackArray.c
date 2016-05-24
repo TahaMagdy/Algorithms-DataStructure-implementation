@@ -1,32 +1,39 @@
 #include"stackArrayHeader.h"
 
-void initializeStack ( Stack *s ) {
+void initializeStack ( Stack *s )
+    {
 	s->top = 0;		
-} // end function
+    } // end function
 
-void push ( DataType element, Stack *s ) {
+void push ( DataType element, Stack *s )
+    {
 	s->array[ s->top ++ ] = element;	
-} // end push function	 
+    } // end push function	 
 
-void pop ( DataType* element, Stack *s ) {
+void pop ( DataType* element, Stack *s )
+    {
 	*element = s->array[ -- s->top ];	
-} // end pop	
+    } // end pop	
 
-int isFull ( Stack* s ) {
+int isFull ( Stack* s )
+    {
 	return s->top == MAX - 1;	
-} // end isFull	
+    } // end isFull	
 
-int isEmpty ( Stack* s ) {
+int isEmpty ( Stack* s )
+    {
 	return !s->top;
-} // end isEmpty
+    } // end isEmpty
 
-int stackSize ( Stack* s ) {
+int stackSize ( Stack* s )
+    {
 	return s->top;	
-} // end stackSize	
+    } // end stackSize	
 
-void clearStack( Stack* s ) {
+void clearStack( Stack* s )
+    {
 	s->top = 0;	
-} // end clearStack	
+    } // end clearStack	
 
 // In traverse, the passed function must process
 // one element, then I'll take the function through
@@ -36,4 +43,4 @@ void traverse( Stack* s, void ( *pointerToFunction ) ( ) ) // you're free to wri
 	for ( int i = s->top; i > 0; i-- ) {
 			( *pointerToFunction ) ( s->array[ i - 1 ] ); // calling the function. by its pointer.
 	} // end traversing elements 
-} // end traverse	
+    } // end traverse	
