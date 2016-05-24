@@ -1,13 +1,13 @@
 #define MAX 10
 #define DataType int
 
-// The Structure of Node
+// Node Structure
 typedef struct node {
 	DataType member;
 	struct node *next;	
 } Node;	
 
-// The Structure of the Stack
+// Stack Structure
 typedef struct stack {
 	Node *top;
 	int size;	
@@ -15,13 +15,13 @@ typedef struct stack {
 
 //////
 
-// Accessing Mechanism
+// Accessing Mechanisms
 
-void initializeStack 		( Stack*			 );
-void push					( DataType  , Stack* );
-void pop 					( DataType* , Stack* );    
-int  isFull					( Stack*		 );
-int  isEmpty				( Stack*		 );
-int  stackSize				( Stack*		 );
-void clearStack				( Stack*		 );
-void traverse				( Stack*, void ( * ) ( DataType) );
+void initializeStack 		( Stack*	     );
+void push			( DataType  , Stack* );
+void pop 			( DataType* , Stack* );    
+int  isFull			( Stack*	     );
+int  isEmpty			( Stack*	     );
+int  stackSize			( Stack*	     );
+void clearStack			( Stack*	     );
+void traverse			( Stack*, void ( * ) ( DataType) );
