@@ -53,9 +53,12 @@ void mergeSort ( int *array, int size ){
 
 } // end mergeSort
 
+
+
+
+// Testing ...
 int main (void){
 
-    
     int a[] = {2,3,4,5,6,1,213,1241,4,0};
 
     mergeSort ( a, 10 );
