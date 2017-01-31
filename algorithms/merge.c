@@ -36,7 +36,7 @@ void mergeSort ( int *array, int size ){
     right = (int*) malloc ( (size-mid)*sizeof(int) );
 
     // Filling right and left with numbers
-    for ( i = 0; i < mid; i++ )    left[i]      = array[i];
+    for ( i = 0; i < mid; i++ )    left[i]    = array[i];
     int j = 0; // to use right from the index zero.
     // i is used with the array so I cannot reset it.
     for ( i = mid; i < size; i++ ) right[j++] = array[i];
