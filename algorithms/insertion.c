@@ -1,34 +1,50 @@
 #include<stdio.h>
 #define SIZE 5
 
+
+// * pre-condition : passing unsorted integer array.
+// * post-condition: the passed array is sorted.
 void
-insertion ( int* ar, int size )
+insertion_sort ( int* ar, int size )
 {
   int table,
       hand ,
-      temp ;
+      key  ;
   for( table = 1; table < size; table++ )
     {
-       temp = ar[table]; // picking an element into temp;
-       hand = table - 1; // the most right element of the sorted part
+       key  = ar[table]; // picking the current key.
+       hand = table - 1; // the greatest sorted part element.
 
-       // hand == 1-, then the smallest number is its place
-       // picked number still smaller
-       while ( ( temp < ar[hand] ) && ( hand >= 0 ) )
+       // * Inserting the key into the sorted part.
+       // * if the key in less than its previous we
+       //   shift all the previous ones  to the
+       //   right. until key is not less than
+       //   
+       while ( ( hand >= 0 ) && ( key < ar[hand] ) )
          {
-	   // making room for the new element
+	   // * moving ar[hand] to the right,
+	   //   the key will be overwridde,
+	   //   it's ok, becuse we have it in the $key
 	   ar[hand+1] = ar[hand]; 
-	   hand --;
-	 } // end inserting the element;
 
-       // putting the selected element; in Its position in the sorted area
-       ar[hand+1]=temp;  
-    } // end table
-  return;
+	   // * moving the index to the left
+	   //   to ensure that the left is not
+	   //   greater than the key
+	   hand --;
+	 } // # end inserting the element;
+
+       // * inserting the key into its position in
+       //   the sorted area.
+       // * where it is not less than its previous.
+       ar[hand+1] = key;  
+    } // # end table
+return;
 } // end insertion()
 
-//////////////////////////////////////////
-// Testing...
+			/////////////////////
+			/////////////////////
+
+// ^^ Testing...
 int main()
 {
   int b [SIZE];
@@ -36,12 +52,11 @@ int main()
   while ( i < SIZE )
     scanf( "%d", &b[i++] );
 
-  insertion ( b, SIZE );
+  insertion_sort ( b, SIZE );
 
   for ( i = 0; i < SIZE; i++ )
-      printf( "%d ", b[i] );
-
-printf("\n");
+    printf( "%d ", b[i] );
+    printf("\n");
 
 return 0;
 } // end main()
