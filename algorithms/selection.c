@@ -31,6 +31,7 @@ int temp,
   // * If the smallest is greater than the current
   //   Do not swap, because this will disarrange
   //   becuase it will put a smaller number of the right side.
+  // * Loop Invariant: `The elements before i are sorted`
   if ( smallest < ar[current_key] ) {
     temp = ar[smallest_index];
     ar[smallest_index] = ar[current_key];
