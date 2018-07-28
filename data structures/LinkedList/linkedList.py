@@ -1,5 +1,7 @@
 #!/usr/local/bin/python3
-"""1 Creating the linked list ADT
+"""Educational; Just for fun.
+
+   1 Creating the linked list ADT
    2 Creating its operations
    3 Testing
 """
@@ -48,7 +50,16 @@ class LinkedList:
 
 
     def traverse(self, function):
-        pass
+        currentNode = self.head
+
+        # If the head is None; get out
+        if currentNode.data == None:
+            return
+
+        while currentNode.next != None:
+            currentNode.data = function(currentNode.data)
+            currentNode = currentNode.next
+        currentNode.data = function(currentNode.data)
 
 
     def length(self):
@@ -60,11 +71,13 @@ class LinkedList:
         currentNode = self.head
 
         while currentNode.next != None:
-            print(currentNode.data)
+            print(currentNode.data, end=' ')
             currentNode = currentNode.next
         print(currentNode.data)
 
 
+def mult10(number):
+    return number * 10
 """Testing"""
 if __name__ == "__main__":
     myList = LinkedList()
@@ -76,3 +89,6 @@ if __name__ == "__main__":
     myList.printElements()
     print("Length = " + str(myList.length()))
     print("Index = " + str(myList.getByIndex(4)))
+
+    myList.traverse(mult10)
+    myList.printElements()
