@@ -14,28 +14,46 @@ class LinkedList:
     # LinkedList definition
     def __init__(self):
         self.head = Node(data=None)
+        self.len = 0
 
     # LinkedList Operations
     def append(self, element):
         # Getting the head
         currentNode = self.head
+
+        # if the head if None
         if currentNode.data == None:
             currentNode.data = element
+            self.len += 1
             return
+
         # Moving over the next nodes
         while currentNode.next != None:
             currentNode = currentNode.next
         # Appending the new element to the last node's next.
         currentNode.next = Node(element)
+        self.len += 1
+
 
     def getByIndex(self, index):
-        pass
+        currentNode = self.head
+
+        if index > self.len-1:
+            print("out of index range")
+        else:
+            currentNode = self.head
+            for x in range(index):
+                currentNode = currentNode.next
+            return currentNode.data
+
 
     def traverse(self, function):
         pass
 
+
     def length(self):
-        pass
+        return self.len
+
 
     def printElements(self):
         # Getting the head
@@ -56,3 +74,5 @@ if __name__ == "__main__":
     myList.append(15)
     myList.append(13)
     myList.printElements()
+    print("Length = " + str(myList.length()))
+    print("Index = " + str(myList.getByIndex(4)))
