@@ -76,9 +76,10 @@ class LinkedList:
         print(currentNode.data)
 
 
+"""Testing"""
 def mult10(number):
     return number * 10
-"""Testing"""
+
 if __name__ == "__main__":
     myList = LinkedList()
     myList.append(12)
