@@ -19,6 +19,9 @@ class LinkedList:
     def append(self, element):
         # Getting the head
         currentNode = self.head
+        if currentNode.data == None:
+            currentNode.data = element
+            return
         # Moving over the next nodes
         while currentNode.next != None:
             currentNode = currentNode.next
@@ -31,11 +34,25 @@ class LinkedList:
     def traverse(self, function):
         pass
 
-    def printElements(self):
+    def length(self):
         pass
+
+    def printElements(self):
+        # Getting the head
+        currentNode = self.head
+
+        while currentNode.next != None:
+            print(currentNode.data)
+            currentNode = currentNode.next
+        print(currentNode.data)
+
 
 """Testing"""
 if __name__ == "__main__":
     myList = LinkedList()
     myList.append(12)
     myList.append(13)
+    myList.append(14)
+    myList.append(15)
+    myList.append(13)
+    myList.printElements()
